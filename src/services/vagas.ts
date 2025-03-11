@@ -125,3 +125,14 @@ class VagasService {
 }
 
 export const vagasService = new VagasService();
+
+// Around line 63, you have unused variables:
+// Change this:
+// Add this comment above the line with unused variables
+/* eslint-disable @typescript-eslint/no-unused-vars */
+const { titulo, descricao, localDaVaga, ...otherProps } = vaga;
+
+// To this:
+const { descricao, ...otherProps } = vaga;
+// or if you need to destructure but not use those variables:
+const { titulo: _, descricao, localDaVaga: __, ...otherProps } = vaga;
