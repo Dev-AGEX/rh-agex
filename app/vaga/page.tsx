@@ -12,7 +12,7 @@ export default function VagasPage() {
   useEffect(() => {
     async function carregarVagas() {
       try {
-        const vagasData = await vagasService.listarVagas(true); // true para buscar apenas vagas publicadas
+        const vagasData = await vagasService.listarVagas(1); // Busca a primeira página de vagas publicadas
         setVagas(vagasData);
       } catch (err) {
         console.error('Erro ao carregar vagas:', err);
