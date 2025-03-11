@@ -6,7 +6,8 @@ import { vagasService } from '@/src/services/vagas';
 
 async function getVagas() {
   try {
-    return await vagasService.listarVagas(true); // true para buscar apenas vagas publicadas
+    // Change the boolean parameter to a number (1) to indicate published vagas
+    return await vagasService.listarVagas(1); // 1 for published vagas
   } catch (error) {
     console.error('Erro ao buscar vagas:', error);
     return [];
