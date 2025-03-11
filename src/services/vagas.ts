@@ -60,9 +60,11 @@ class VagasService {
       const partes = slug.split('-');
       const local = partes.pop() || ''; // último item é a UF
       const cidade = partes.pop() || ''; // penúltimo item é a cidade
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const titulo = partes.join('-'); // o resto é o título
 
       // Reconstrói o local da vaga
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const localDaVaga = `${cidade.toUpperCase()} - ${local.toUpperCase()}`;
 
       // Busca todas as vagas publicadas
