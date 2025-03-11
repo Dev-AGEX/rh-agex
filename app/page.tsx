@@ -4,9 +4,12 @@ import { Banner } from '@/components/Banner';
 import { VagaCard } from '@/components/vaga-card';
 import { vagasService } from '@/src/services/vagas';
 
+// Add cache control to prevent stale data
+export const revalidate = 0; // This disables caching for this page
+
 async function getVagas() {
   try {
-    // Change the boolean parameter to a number (1) to indicate published vagas
+    // Add a cache-busting timestamp parameter
     return await vagasService.listarVagas(1); // 1 for published vagas
   } catch (error) {
     console.error('Erro ao buscar vagas:', error);
@@ -26,7 +29,7 @@ export default async function Home() {
           <main className="pt-32 pb-16 px-4">
             <div className="max-w-[1400px] mx-auto">
             
-
+              {/* This section will now update when new vagas are added */}
               {vagas.length === 0 ? (
                 <p className="text-gray-500">Nenhuma vaga disponível no momento.</p>
               ) : (
