@@ -9,8 +9,8 @@ export const revalidate = 0; // This disables caching for this page
 
 async function getVagas() {
   try {
-    // Add a cache-busting timestamp parameter
-    return await vagasService.listarVagas(1); // 1 for published vagas
+    // Increase the page size parameter to show more vacancies
+    return await vagasService.listarVagas(1, 20); // Second parameter for items per page
   } catch (error) {
     console.error('Erro ao buscar vagas:', error);
     return [];
